@@ -1,8 +1,6 @@
 package api
 
 import (
-	"fmt"
-
 	"github.com/astaxie/beego/httplib"
 	"github.com/astaxie/beego/logs"
 	"github.com/iceopen/go-mta/config"
@@ -24,11 +22,12 @@ func CtrCoreData(start_date string, end_date string, idx string) string {
 	}
 	param = param + "sign=" + sign
 	url := "http://mta.qq.com/h5/api/ctr_core_data?" + param
-	fmt.Println(url)
+	logs.Info("ctr_core_data : " + url)
 	req := httplib.Get(url)
 	str, err := req.String()
 	if err != nil {
 		logs.Error(503, err)
 	}
+	logs.Info("ctr_core_data : " + url + " result : " + str)
 	return str
 }
