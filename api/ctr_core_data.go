@@ -9,7 +9,7 @@ import (
 
 // 应用每天的pv\uv\vv\iv数据。
 func CtrCoreData(start_date string, end_date string, idx string) string {
-	m := make(map[string]string, 5)
+	m := make(map[string]string, 4)
 	m["app_id"] = config.APP_ID
 	m["end_date"] = end_date
 	m["idx"] = idx
